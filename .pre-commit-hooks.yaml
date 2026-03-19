@@ -1,0 +1,5 @@
+- id: hadolint
+  name: Lint Dockerfiles
+  language: python
+  entry: hadolint
+  types: [dockerfile]
