@@ -25,7 +25,7 @@ This package ships the hadolint binary via PyPI using
 When `pip install hadolint-py` is run (which pre-commit does automatically),
 the appropriate pre-built binary for your platform is downloaded from the
 official [hadolint GitHub releases](https://github.com/hadolint/hadolint/releases)
-and placed in your environment's `bin/` directory.
+and placed in your environment's `bin/` directory (or `Scripts/` on Windows).
 
 Supported platforms:
 

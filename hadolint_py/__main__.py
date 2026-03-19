@@ -17,8 +17,10 @@ def main() -> NoReturn:
         # Fall back to whatever is on PATH
         exe = exe_name
 
-    os.execvp(exe, [exe, *sys.argv[1:]])
-    raise RuntimeError('os.execvp failed to replace the current process')
+    try:
+        os.execvp(exe, [exe, *sys.argv[1:]])
+    except OSError as exc:
+        raise RuntimeError(f"Failed to execute {exe!r}") from exc
 
 
 if __name__ == '__main__':
