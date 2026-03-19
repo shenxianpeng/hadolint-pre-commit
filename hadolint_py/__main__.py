@@ -2,9 +2,10 @@ from __future__ import annotations
 
 import os
 import sys
+from typing import NoReturn
 
 
-def main() -> int:
+def main() -> NoReturn:
     exe_name = 'hadolint.exe' if sys.platform == 'win32' else 'hadolint'
 
     # Prefer the binary installed alongside the current Python interpreter
@@ -17,8 +18,8 @@ def main() -> int:
         exe = exe_name
 
     os.execvp(exe, [exe, *sys.argv[1:]])
-    return 0  # unreachable, but satisfies type checkers
+    raise RuntimeError('os.execvp failed to replace the current process')
 
 
 if __name__ == '__main__':
-    raise SystemExit(main())
+    main()
