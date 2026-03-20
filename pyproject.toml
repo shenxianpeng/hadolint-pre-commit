@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools", "setuptools-download"]
+requires = ["setuptools", "setuptools-scm", "setuptools-download"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "hadolint-py"
-version = "2.14.0.1"
+dynamic = ["version"]
 description = "Python wrapper around invoking hadolint (https://github.com/hadolint/hadolint)"
 readme = "README.md"
 license = "MIT"
@@ -22,3 +22,6 @@ Homepage = "https://github.com/shenxianpeng/hadolint-pre-commit"
 [tool.setuptools]
 packages = ["hadolint_py"]
 
+[tool.setuptools_scm]
+# Version is derived automatically from git tags (e.g. tag v2.14.0.1 → version 2.14.0.1).
+# No manual version bumping needed; just create a git tag to cut a release.
