@@ -29,3 +29,6 @@ jobs:
 
       - name: Verify hadolint binary
         run: hadolint --version
+
+      - name: Lint test Dockerfile
+        run: hadolint tests/Dockerfile
