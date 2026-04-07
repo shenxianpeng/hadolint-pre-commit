@@ -105,11 +105,7 @@ hadolint Dockerfile
 
 ## Contributing
 
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-## Changelog
-
-See [GitHub Releases](https://github.com/shenxianpeng/hadolint-pre-commit/releases) for the full changelog.
+Contributions are welcome! Please open an issue or pull request on [GitHub](https://github.com/shenxianpeng/hadolint-pre-commit).
 
 ## License
 
