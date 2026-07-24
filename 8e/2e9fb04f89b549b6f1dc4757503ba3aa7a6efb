@@ -1,0 +1,19 @@
+.github/dependabot.yml
+  s_a20aa4478d28a5::t_1bfb46dcc37deb 3,8-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "8e2e9fb04f89b549b6f1dc4757503ba3aa7a6efb",
+  "prompts": {},
+  "sessions": {
+    "s_a20aa4478d28a5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "29027368-6746-4af2-9586-42fb24abdecf",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "shenxianpeng <xianpeng.shen@gmail.com>"
+    }
+  }
+}
