@@ -4,3 +4,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      # Group all Actions updates into a single PR
+      actions:
+        patterns:
+          - "*"
