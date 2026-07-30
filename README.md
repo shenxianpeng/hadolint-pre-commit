@@ -27,7 +27,7 @@ Add the following to your `.pre-commit-config.yaml`:
 ```yaml
 repos:
   - repo: https://github.com/shenxianpeng/hadolint-pre-commit
-    rev: v2.14.0.1
+    rev: v2.15.0.1
     hooks:
       - id: hadolint
 ```
@@ -41,7 +41,7 @@ You can pass any [hadolint CLI argument](https://github.com/hadolint/hadolint#cl
 ```yaml
 repos:
   - repo: https://github.com/shenxianpeng/hadolint-pre-commit
-    rev: v2.14.0.1
+    rev: v2.15.0.1
     hooks:
       - id: hadolint
         args: [--ignore, DL3008, --ignore, DL3009]
