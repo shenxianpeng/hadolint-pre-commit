@@ -106,17 +106,20 @@ hadolint Dockerfile
 ## Versioning
 
 The package version is **not** maintained by hand — it is derived automatically
-from git tags by [setuptools-scm](https://github.com/pypa/setuptools-scm) at
-build time. Tag `v2.15.1.1` produces PyPI version `2.15.1.1`.
+from the release tag by [setuptools-scm](https://github.com/pypa/setuptools-scm)
+at build time. **The PyPI version is exactly the tag you enter on the GitHub
+release** (e.g. tag `v2.15.1.1` → PyPI version `2.15.1.1`).
 
 To cut a release:
 
-1. Merge your changes to `main`
-2. Create a tag matching the bundled hadolint version:
-   `git tag v2.15.1.1 && git push origin v2.15.1.1`
-3. Create a GitHub release from that tag — the
-   [publish workflow](.github/workflows/publish.yml) then builds all platform
-   wheels and publishes them to PyPI automatically
+1. Open [GitHub Releases](https://github.com/shenxianpeng/hadolint-pre-commit/releases)
+   and click **Draft a new release** — the release-drafter bot usually has a
+   draft ready, so you can also just edit that one
+2. Enter a tag matching the bundled hadolint version, e.g. `v2.15.1.1` — GitHub
+   creates the tag for you, **no command line needed**
+3. Click **Publish release** — the
+   [publish workflow](.github/workflows/publish.yml) builds all platform
+   wheels and publishes them to PyPI under that exact version
 
 The derived version is also importable at runtime:
 `hadolint_py.__version__`.
