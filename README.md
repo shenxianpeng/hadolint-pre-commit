@@ -106,8 +106,9 @@ hadolint Dockerfile
 ## Versioning
 
 The PyPI version is derived automatically from the release tag
-(e.g. tag `v2.15.1.2` → PyPI version `2.15.1.2`) — reference the matching
-`rev:` in your `.pre-commit-config.yaml`. See
+(e.g. tag `vX.Y.Z.W` → PyPI version `X.Y.Z.W`) — reference the matching
+`rev:` in your `.pre-commit-config.yaml`. The `rev:` examples above are kept
+up to date automatically after each release. See
 [CONTRIBUTING.md](CONTRIBUTING.md#cutting-a-release) for the release process.
 
 ## Contributing
