@@ -29,3 +29,10 @@ packages = ["hadolint_py"]
 [tool.setuptools_scm]
 # Version is derived automatically from git tags (e.g. tag v2.15.1.1 → version 2.15.1.1).
 # No manual version bumping needed; just create a git tag to cut a release.
+#
+# fallback_version: allows building from a source tree without git metadata
+#   (e.g. `pip install .` from a tarball) instead of failing.
+fallback_version = "0.0.0"
+# write_to: generates hadolint_py/_version.py at build time so the derived
+#   version is importable at runtime (hadolint_py.__version__).
+write_to = "hadolint_py/_version.py"

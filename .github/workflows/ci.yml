@@ -27,6 +27,9 @@ jobs:
       - name: Install package
         run: pip install .
 
+      - name: Verify version derived from git tag
+        run: python -c "import hadolint_py; print('hadolint-py version:', hadolint_py.__version__)"
+
       - name: Verify hadolint binary
         run: hadolint --version
 
