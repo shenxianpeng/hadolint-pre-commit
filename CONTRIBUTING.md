@@ -9,13 +9,13 @@ stripped). There are **no manual version bumps** and **no command-line steps**.
 1. Open [GitHub Releases](https://github.com/shenxianpeng/hadolint-pre-commit/releases)
    and click **Draft a new release** — the release-drafter bot usually has a
    draft ready, so you can also just edit that one.
-2. Enter a tag matching the bundled hadolint version, e.g. `v2.15.1.1` —
+2. Enter a tag matching the bundled hadolint version, e.g. `v2.15.1.2` —
    GitHub creates the tag for you.
 3. Click **Publish release** — the
    [publish workflow](.github/workflows/publish.yml) builds all platform
    wheels and publishes them to PyPI under that exact version.
 
-Tag `v2.15.1.1` → PyPI version `2.15.1.1`.
+Tag `v2.15.1.2` → PyPI version `2.15.1.2`.
 
 ## Updating the bundled hadolint version
 
