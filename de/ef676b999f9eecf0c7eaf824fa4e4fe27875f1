@@ -1,0 +1,25 @@
+CONTRIBUTING.md
+  s_13c8566f39b367::t_bf1fdd4db4e065 12-14,17-18,20,31
+pyproject.toml
+  s_13c8566f39b367::t_706be2ae854f62 30
+README.md
+  s_13c8566f39b367::t_17e6ff4d98991e 109-111
+.github/workflows/publish.yml
+  s_13c8566f39b367::t_ee8ceeaa42521a 101-125
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "deef676b999f9eecf0c7eaf824fa4e4fe27875f1",
+  "prompts": {},
+  "sessions": {
+    "s_13c8566f39b367": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019fb98b-eda7-77a2-a2bb-cbd44e876e76",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "shenxianpeng <xianpeng.shen@gmail.com>"
+    }
+  }
+}
