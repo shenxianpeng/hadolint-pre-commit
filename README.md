@@ -112,8 +112,8 @@ changes when a new upstream release is bundled).
 
 The PyPI version is derived automatically from the release tag
 (e.g. tag `vX.Y.Z.W` → PyPI version `X.Y.Z.W`) — reference the matching
-`rev:` in your `.pre-commit-config.yaml`. The `rev:` examples above are kept
-up to date automatically after each release. See
+`rev:` in your `.pre-commit-config.yaml`. The `rev:` examples above point to
+the latest release. See
 [CONTRIBUTING.md](CONTRIBUTING.md#cutting-a-release) for the release process.
 
 ## Contributing

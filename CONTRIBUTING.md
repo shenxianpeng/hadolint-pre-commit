@@ -15,8 +15,7 @@ stripped). There are **no manual version bumps** and **no command-line steps**.
    resets to `0` when a new hadolint version is bundled.
 3. Click **Publish release** — the
    [publish workflow](.github/workflows/publish.yml) builds all platform
-   wheels, publishes them to PyPI under that exact version, and updates the
-   `rev:` examples in `README.md` automatically.
+   wheels and publishes them to PyPI under that exact version.
 
 Tag `vX.Y.Z.W` → PyPI version `X.Y.Z.W`.
 
@@ -29,4 +28,5 @@ is out:
    `hadolint-macos-x86_64`, `hadolint-macos-arm64`, `hadolint-windows-x86_64.exe`
 2. Compute the `sha256` hash of each binary (e.g. `shasum -a 256 <file>`)
 3. Update the URLs and hashes in `setup.cfg`
-4. Open a PR; once merged, cut a release as described above
+4. Update the `rev:` examples in `README.md` to the new tag
+5. Open a PR; once merged, cut a release as described above
