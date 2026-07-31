@@ -27,6 +27,10 @@ jobs:
       - name: Install package
         run: pip install .
 
+      - name: Verify version derived from git tag
+        shell: bash
+        run: pip show hadolint-py | grep Version
+
       - name: Verify hadolint binary
         run: hadolint --version
 

@@ -103,6 +103,13 @@ hadolint --version
 hadolint Dockerfile
 ```
 
+## Versioning
+
+The PyPI version is derived automatically from the release tag
+(e.g. tag `v2.15.1.1` → PyPI version `2.15.1.1`) — reference the matching
+`rev:` in your `.pre-commit-config.yaml`. See
+[CONTRIBUTING.md](CONTRIBUTING.md#cutting-a-release) for the release process.
+
 ## Contributing
 
 Contributions are welcome! Please open an issue or pull request on [GitHub](https://github.com/shenxianpeng/hadolint-pre-commit).
