@@ -1,0 +1,21 @@
+CONTRIBUTING.md
+  s_13c8566f39b367::t_e6d5d4e65e3e0c 18,31-32
+README.md
+  s_13c8566f39b367::t_1ad1a5256ba54b 115-116
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "b4def1486c2834de60976e950a0970898f6a2fd2",
+  "prompts": {},
+  "sessions": {
+    "s_13c8566f39b367": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019fb98b-eda7-77a2-a2bb-cbd44e876e76",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "shenxianpeng <xianpeng.shen@gmail.com>"
+    }
+  }
+}
