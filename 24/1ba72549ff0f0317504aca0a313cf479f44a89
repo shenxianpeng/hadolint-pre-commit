@@ -1,0 +1,22 @@
+README.md
+  s_13c8566f39b367::t_f06f1a255bda81 44
+  s_13c8566f39b367::t_c7fbf0aa2c1ade 30
+setup.cfg
+  s_13c8566f39b367::t_90b3633f3ce053 26-27,31-32,36-37,41-42,46-47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "241ba72549ff0f0317504aca0a313cf479f44a89",
+  "prompts": {},
+  "sessions": {
+    "s_13c8566f39b367": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019fb98b-eda7-77a2-a2bb-cbd44e876e76",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "shenxianpeng <xianpeng.shen@gmail.com>"
+    }
+  }
+}
