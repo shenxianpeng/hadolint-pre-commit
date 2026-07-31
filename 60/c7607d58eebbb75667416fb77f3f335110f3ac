@@ -1,0 +1,27 @@
+hadolint_py/__init__.py
+  s_13c8566f39b367::t_27447620075b35 2-9
+.github/workflows/ci.yml
+  s_13c8566f39b367::t_9d37f57e297d58 30-32
+.gitignore
+  s_13c8566f39b367::t_f9a8512ad7c44a 7
+pyproject.toml
+  s_13c8566f39b367::t_54435ba05504ac 32-38
+README.md
+  s_13c8566f39b367::t_8b2cf1fd5cc910 106-123
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "60c7607d58eebbb75667416fb77f3f335110f3ac",
+  "prompts": {},
+  "sessions": {
+    "s_13c8566f39b367": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019fb98b-eda7-77a2-a2bb-cbd44e876e76",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "shenxianpeng <xianpeng.shen@gmail.com>"
+    }
+  }
+}
