@@ -1,0 +1,25 @@
+pyproject.toml
+  s_13c8566f39b367::t_c19d589d37ab59 30-32
+README.md
+  s_13c8566f39b367::t_3f8679f85bb4e6 109-111,115-122
+.github/workflows/publish.yml
+  s_13c8566f39b367::t_085741fea0edfd 31-34,65-67
+  s_13c8566f39b367::t_b82c06686d6aca 43-44
+  s_13c8566f39b367::t_4483f0c9fa9c14 68
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "6be58d9d81e9ca06a5af36dbaec25ef09c7f3333",
+  "prompts": {},
+  "sessions": {
+    "s_13c8566f39b367": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019fb98b-eda7-77a2-a2bb-cbd44e876e76",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "shenxianpeng <xianpeng.shen@gmail.com>"
+    }
+  }
+}
