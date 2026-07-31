@@ -27,7 +27,7 @@ Add the following to your `.pre-commit-config.yaml`:
 ```yaml
 repos:
   - repo: https://github.com/shenxianpeng/hadolint-pre-commit
-    rev: v2.15.1.1
+    rev: v2.15.1.2
     hooks:
       - id: hadolint
 ```
@@ -41,7 +41,7 @@ You can pass any [hadolint CLI argument](https://github.com/hadolint/hadolint#cl
 ```yaml
 repos:
   - repo: https://github.com/shenxianpeng/hadolint-pre-commit
-    rev: v2.15.1.1
+    rev: v2.15.1.2
     hooks:
       - id: hadolint
         args: [--ignore, DL3008, --ignore, DL3009]
@@ -105,9 +105,15 @@ hadolint Dockerfile
 
 ## Versioning
 
+Versions follow the bundled hadolint release plus a wrapper patch digit:
+hadolint `2.15.1` → `v2.15.1.0`, `v2.15.1.1`, … — the trailing digit is a bug
+fix of this wrapper, **not** a new hadolint release (the hadolint version only
+changes when a new upstream release is bundled).
+
 The PyPI version is derived automatically from the release tag
-(e.g. tag `v2.15.1.1` → PyPI version `2.15.1.1`) — reference the matching
-`rev:` in your `.pre-commit-config.yaml`. See
+(e.g. tag `vX.Y.Z.W` → PyPI version `X.Y.Z.W`) — reference the matching
+`rev:` in your `.pre-commit-config.yaml`. The `rev:` examples above point to
+the latest release. See
 [CONTRIBUTING.md](CONTRIBUTING.md#cutting-a-release) for the release process.
 
 ## Contributing
