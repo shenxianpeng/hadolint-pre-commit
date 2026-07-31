@@ -1,0 +1,24 @@
+README.md
+  s_13c8566f39b367::t_fd15051cbac867 108-111
+.github/workflows/ci.yml
+  s_13c8566f39b367::t_29e738ea3a1e4a 31
+  s_13c8566f39b367::t_cd54554a08610e 32
+CONTRIBUTING.md
+  s_13c8566f39b367::t_5ea0a41efb1869 1-30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "184f25b1d5c05701d01343981fbbeb6dbbf575e4",
+  "prompts": {},
+  "sessions": {
+    "s_13c8566f39b367": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "019fb98b-eda7-77a2-a2bb-cbd44e876e76",
+        "model": "deepseek-v4-flash"
+      },
+      "human_author": "shenxianpeng <xianpeng.shen@gmail.com>"
+    }
+  }
+}
