@@ -105,6 +105,11 @@ hadolint Dockerfile
 
 ## Versioning
 
+Versions follow the bundled hadolint release plus a wrapper patch digit:
+hadolint `2.15.1` → `v2.15.1.0`, `v2.15.1.1`, … — the trailing digit is a bug
+fix of this wrapper, **not** a new hadolint release (the hadolint version only
+changes when a new upstream release is bundled).
+
 The PyPI version is derived automatically from the release tag
 (e.g. tag `vX.Y.Z.W` → PyPI version `X.Y.Z.W`) — reference the matching
 `rev:` in your `.pre-commit-config.yaml`. The `rev:` examples above are kept
