@@ -34,6 +34,3 @@ packages = ["hadolint_py"]
 # fallback_version: allows building from a source tree without git metadata
 #   (e.g. `pip install .` from a tarball) instead of failing.
 fallback_version = "0.0.0"
-# write_to: generates hadolint_py/_version.py at build time so the derived
-#   version is importable at runtime (hadolint_py.__version__).
-write_to = "hadolint_py/_version.py"
