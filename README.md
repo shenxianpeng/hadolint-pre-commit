@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/shenxianpeng/hadolint-pre-commit/actions/workflows/ci.yml/badge.svg)](https://github.com/shenxianpeng/hadolint-pre-commit/actions/workflows/ci.yml)
 [![PyPI version](https://badge.fury.io/py/hadolint-py.svg?logo=haskell)](https://badge.fury.io/py/hadolint-py)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/hadolint-py)](https://pypi.org/project/hadolint-py/)
+[![PyPI version](https://img.shields.io/pypi/v/hadolint-py.svg?logo=haskell)](https://pypi.org/project/hadolint-py/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://pre-commit.com/)
 
