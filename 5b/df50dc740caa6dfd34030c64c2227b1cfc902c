@@ -1,0 +1,36 @@
+pyproject.toml
+  s_66212c309e21f0::t_36644aa68108e0 30
+  s_66212c309e21f0::t_c369ff84c22bb3 44-59
+  s_66212c309e21f0::t_1dfb9dcd5922c7 26-29,31-32
+tests/test_setup.py
+  s_66212c309e21f0::t_930dd07a29f0ca 1-98
+tests/test_main.py
+  s_66212c309e21f0::t_7a07b16bd07316 1-4,7-12,27-161
+  s_66212c309e21f0::t_7e42ac033cb573 5-6,13-26
+  s_66212c309e21f0::t_3056298b64ad5e 162-179
+tests/test_download_config.py
+  s_66212c309e21f0::t_81447cca2a7d34 1-130
+  s_66212c309e21f0::t_87dda04e77e1e6 131
+CONTRIBUTING.md
+  s_66212c309e21f0::t_734bac4f86e056 3-13
+.github/workflows/ci.yml
+  s_66212c309e21f0::t_7d807a914d4cfc 39-47
+.gitignore
+  s_66212c309e21f0::t_9ec3bf27864085 7-11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "5bdf50dc740caa6dfd34030c64c2227b1cfc902c",
+  "prompts": {},
+  "sessions": {
+    "s_66212c309e21f0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8763d161-5362-48a1-ae9b-11f7bcd83469",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Xianpeng Shen <xianpeng.shen@gmail.com>"
+    }
+  }
+}
