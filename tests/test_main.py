@@ -111,20 +111,85 @@ def test_ignores_a_directory_named_like_the_binary(
     assert execvp == [('hadolint', ['hadolint'])]
 
 
-def test_uses_exe_suffix_on_windows(
+@pytest.fixture
+def windows(
         interpreter_dir: Path,
-        execvp: list[tuple[str, list[str]]],
+        tmp_path: Path,
+        monkeypatch: pytest.MonkeyPatch,
+) -> list[list[str]]:
+    """Pretend to run on Windows; record subprocess.call() invocations."""
+    calls: list[list[str]] = []
+
+    def fake_call(args: list[str]) -> int:
+        calls.append(args)
+        return 1  # hadolint found problems
+
+    def fake_execvp(file: str, args: list[str]) -> None:
+        raise AssertionError('os.execvp() loses the exit status on Windows')
+
+    empty_path = tmp_path / 'empty-path'
+    empty_path.mkdir()
+    monkeypatch.setenv('PATH', str(empty_path))
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(sys, 'platform', 'win32')
+    monkeypatch.setattr(subprocess, 'call', fake_call)
+    monkeypatch.setattr(os, 'execvp', fake_execvp)
+    return calls
+
+
+def test_windows_exits_with_hadolint_status(
+        interpreter_dir: Path,
+        windows: list[list[str]],
         monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    monkeypatch.setattr(sys, 'platform', 'win32')
     (interpreter_dir / 'hadolint').touch()  # not the Windows binary name
     binary = interpreter_dir / 'hadolint.exe'
     binary.touch()
+    monkeypatch.setattr(sys, 'argv', ['hadolint_py', 'Dockerfile'])
 
-    with pytest.raises(Exec):
+    with pytest.raises(SystemExit) as excinfo:
         hadolint_main.main()
 
-    assert execvp == [(str(binary), [str(binary)])]
+    assert excinfo.value.code == 1
+    assert windows == [[str(binary), 'Dockerfile']]
+
+
+def test_windows_falls_back_to_path_lookup(
+        interpreter_dir: Path,
+        windows: list[list[str]],
+        tmp_path: Path,
+        monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    scripts = tmp_path / 'Scripts'
+    scripts.mkdir()
+    binary = scripts / 'hadolint.exe'
+    binary.touch()
+    monkeypatch.setenv('PATH', os.pathsep.join(('missing', str(scripts))))
+
+    with pytest.raises(SystemExit) as excinfo:
+        hadolint_main.main()
+
+    assert excinfo.value.code == 1
+    assert windows == [[str(binary)]]
+
+
+def test_windows_never_runs_hadolint_from_the_current_directory(
+        interpreter_dir: Path,
+        windows: list[list[str]],
+        tmp_path: Path,
+        monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    project = tmp_path / 'project'
+    project.mkdir()
+    (project / 'hadolint.exe').touch()
+    monkeypatch.chdir(project)
+
+    with pytest.raises(RuntimeError) as excinfo:
+        hadolint_main.main()
+
+    assert str(excinfo.value) == "Failed to execute 'hadolint.exe'"
+    assert isinstance(excinfo.value.__cause__, FileNotFoundError)
+    assert windows == []
 
 
 def test_exec_failure_raises_runtime_error(
@@ -177,3 +242,13 @@ def test_python_dash_m_runs_the_installed_binary() -> None:
 
     assert result.returncode == 0, result.stderr
     assert 'Haskell Dockerfile Linter' in result.stdout
+
+
+@requires_hadolint
+def test_python_dash_m_exits_with_hadolint_status(tmp_path: Path) -> None:
+    dockerfile = tmp_path / 'Dockerfile'
+    dockerfile.write_text('FROM\n')  # a parse error fails under any config
+
+    result = _python_m_hadolint_py(str(dockerfile))
+
+    assert result.returncode == 1, (result.stdout, result.stderr)
