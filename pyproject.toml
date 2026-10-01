@@ -8,9 +8,8 @@ dynamic = ["version"]
 description = "Python wrapper around invoking hadolint (https://github.com/hadolint/hadolint)"
 readme = "README.md"
 license = "MIT"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 classifiers = [
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
