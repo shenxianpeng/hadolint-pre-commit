@@ -8,8 +8,36 @@ permissions:
   contents: read
 
 jobs:
+  check-tag:
+    name: Check release tag
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # The tag becomes the PyPI version, which cannot be reused once
+      # uploaded: refuse anything but v<bundled hadolint>.<wrapper patch>
+      # (e.g. a drafted v2.15.2 while hadolint 2.15.1 is bundled).
+      - name: Check tag matches the bundled hadolint version
+        shell: bash
+        run: |
+          bundled="$(sed -nE 's#^[[:space:]]*url = https://github\.com/hadolint/hadolint/releases/download/v([^/]+)/.*#\1#p' setup.cfg | sort -u)"
+          if [[ ! "$bundled" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error file=setup.cfg::expected exactly one hadolint version in setup.cfg, found: ${bundled:-none}"
+            exit 1
+          fi
+          prefix="v${bundled}."
+          if [[ "$GITHUB_REF_NAME" != "$prefix"* || ! "${GITHUB_REF_NAME#"$prefix"}" =~ ^[0-9]+$ ]]; then
+            echo "::error::Release tag ${GITHUB_REF_NAME} does not match ${prefix}<wrapper-patch>: setup.cfg bundles hadolint ${bundled} (see CONTRIBUTING.md)"
+            exit 1
+          fi
+          echo "Release tag ${GITHUB_REF_NAME} matches the bundled hadolint ${bundled}"
+
   build-wheels:
     name: Build wheel (${{ matrix.os }})
+    needs: check-tag
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -57,6 +85,7 @@ jobs:
 
   build-sdist:
     name: Build sdist
+    needs: check-tag
     runs-on: ubuntu-latest
 
     steps:

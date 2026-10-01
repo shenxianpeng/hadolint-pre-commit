@@ -23,7 +23,10 @@ stripped). There are **no manual version bumps** and **no command-line steps**.
 2. Enter a tag matching the bundled hadolint version — the format is
    `<hadolint-version>.<wrapper-patch>`, e.g. `v2.15.1.2` (hadolint `2.15.1`
    + 2nd wrapper bug fix) — GitHub creates the tag for you. The wrapper patch
-   resets to `0` when a new hadolint version is bundled.
+   resets to `0` when a new hadolint version is bundled. Check the tag of a
+   drafted release: release-drafter only knows three-part versions and
+   proposes e.g. `v2.15.2`. The publish workflow refuses any tag that does
+   not match `v<bundled hadolint version>.<N>` before building anything.
 3. Click **Publish release** — the
    [publish workflow](.github/workflows/publish.yml) builds all platform
    wheels and publishes them to PyPI under that exact version.
