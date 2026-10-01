@@ -23,6 +23,13 @@ classifiers = [
 [project.urls]
 Homepage = "https://github.com/shenxianpeng/hadolint-pre-commit"
 
+[dependency-groups]
+test = [
+    "coverage[toml]>=7",
+    "pytest>=7",
+    "setuptools>=70.1",  # setup.py imports setuptools.command.bdist_wheel
+]
+
 [tool.setuptools]
 packages = ["hadolint_py"]
 
@@ -34,3 +41,19 @@ packages = ["hadolint_py"]
 # fallback_version: allows building from a source tree without git metadata
 #   (e.g. `pip install .` from a tarball) instead of failing.
 fallback_version = "0.0.0"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Always test the source tree, even when the package is also installed.
+pythonpath = ["."]
+addopts = "-ra"
+
+[tool.coverage.run]
+branch = true
+# The package plus setup.py: pre-commit builds the hook from source, so the
+# wheel-tagging code in setup.py runs on every user's machine too.
+source = ["."]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+show_missing = true

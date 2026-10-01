@@ -1,5 +1,16 @@
 # Contributing
 
+## Running the tests
+
+```bash
+python -m pip install --group test   # needs pip >= 25.1
+python -m coverage run -m pytest
+python -m coverage report
+```
+
+The tests run offline. The ones that execute the real `hadolint` binary are
+skipped unless it is installed (`pip install .`, as CI does).
+
 ## Cutting a release
 
 The package version is derived entirely from the GitHub release tag — the PyPI

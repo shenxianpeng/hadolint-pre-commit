@@ -36,3 +36,12 @@ jobs:
 
       - name: Lint test Dockerfile
         run: hadolint tests/Dockerfile
+
+      - name: Install test dependencies
+        run: python -m pip install --group test
+
+      - name: Run tests
+        run: python -m coverage run -m pytest
+
+      - name: Report coverage
+        run: python -m coverage report
