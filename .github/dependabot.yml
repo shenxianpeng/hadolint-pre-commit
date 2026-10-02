@@ -4,9 +4,6 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    # Let new releases age a week before proposing them.
-    cooldown:
-      default-days: 7
     groups:
       # Group all Actions updates into a single PR
       actions:
