@@ -1,0 +1,16 @@
+.github/workflows/ci.yml
+  h_20d8fd5fdd9091 20
+pyproject.toml
+  h_20d8fd5fdd9091 11,13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "77ced4d37bc36191976517e66a28c635213d6a57",
+  "prompts": {},
+  "humans": {
+    "h_20d8fd5fdd9091": {
+      "author": "Xianpeng Shen <xianpeng.shen@gmail.com>"
+    }
+  }
+}
