@@ -1,0 +1,21 @@
+.github/workflows/ci.yml
+  s_808bcb54b94641::t_6738a3875dfa95 9-11
+.github/workflows/publish.yml
+  s_808bcb54b94641::t_5c2d9e7d261004 7-9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "92243ee9e6d360238ad924db1a96faccd4b64a14",
+  "prompts": {},
+  "sessions": {
+    "s_808bcb54b94641": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8f452822-7f74-42c5-8597-23c2eec5567e",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Xianpeng Shen <xianpeng.shen@gmail.com>"
+    }
+  }
+}
