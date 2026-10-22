@@ -27,6 +27,12 @@ jobs:
       - name: Install package
         run: pip install .
 
+      - name: Install test dependencies
+        run: pip install pytest pytest-cov
+
+      - name: Run tests (fails below 100% coverage)
+        run: python -m pytest --cov --cov-report=term-missing
+
       - name: Verify version derived from git tag
         shell: bash
         run: pip show hadolint-py | grep Version
