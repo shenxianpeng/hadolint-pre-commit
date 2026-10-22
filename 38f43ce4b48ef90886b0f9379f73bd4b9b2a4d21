@@ -1,0 +1,25 @@
+.github/workflows/ci.yml
+  s_808bcb54b94641::t_b4bfb40aaabe37 30-35
+.gitignore
+  s_808bcb54b94641::t_e618d764220112 7-9
+pyproject.toml
+  s_808bcb54b94641::t_239453aca509fc 23-25,40-50
+tests/test_main.py
+  s_808bcb54b94641::t_cac0f264b4d228 1-331
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "38f43ce4b48ef90886b0f9379f73bd4b9b2a4d21",
+  "prompts": {},
+  "sessions": {
+    "s_808bcb54b94641": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8f452822-7f74-42c5-8597-23c2eec5567e",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Xianpeng Shen <xianpeng.shen@gmail.com>"
+    }
+  }
+}
