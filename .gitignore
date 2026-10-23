@@ -4,3 +4,6 @@ __pycache__/
 build/
 dist/
 .eggs/
+.venv/
+.coverage
+.pytest_cache/

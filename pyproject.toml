@@ -20,6 +20,9 @@ classifiers = [
     "Programming Language :: Python :: Implementation :: PyPy",
 ]
 
+[project.optional-dependencies]
+test = ["pytest", "pytest-cov"]
+
 [project.urls]
 Homepage = "https://github.com/shenxianpeng/hadolint-pre-commit"
 
@@ -34,3 +37,14 @@ packages = ["hadolint_py"]
 # fallback_version: allows building from a source tree without git metadata
 #   (e.g. `pip install .` from a tarball) instead of failing.
 fallback_version = "0.0.0"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["hadolint_py"]
+branch = true
+
+[tool.coverage.report]
+fail_under = 100
+show_missing = true
