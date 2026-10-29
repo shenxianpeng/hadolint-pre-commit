@@ -31,7 +31,9 @@ jobs:
         run: pip install .
 
       - name: Install test dependencies
-        run: pip install pytest pytest-cov
+        # setuptools: tests/test_setup.py loads setup.py, which needs
+        # setuptools.command.bdist_wheel (setuptools >= 70.1).
+        run: pip install pytest pytest-cov "setuptools>=70.1"
 
       - name: Run tests (fails below 100% coverage)
         run: python -m pytest --cov --cov-report=term-missing
