@@ -88,16 +88,47 @@ jobs:
       id-token: write  # required for OIDC trusted publishing
 
     steps:
+      # Each wheel artifact goes into its own folder (no merge-multiple):
+      # two wheels with the same filename would otherwise overwrite or
+      # interleave each other in one folder, which is how the 2.15.1.2 macOS
+      # wheel got corrupted (#37). The next step copies them into dist/.
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           pattern: wheel-*
-          merge-multiple: true
-          path: dist/
+          path: wheels/
 
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: sdist
           path: dist/
+
+      - name: Verify wheels
+        shell: bash
+        run: |
+          set -euo pipefail
+          # One wheel per build-wheels matrix entry; keep in sync with the matrix.
+          expected=5
+
+          mapfile -t wheels < <(find wheels -type f -name '*.whl' | sort)
+          printf '%s\n' "${wheels[@]}"
+
+          if [ "${#wheels[@]}" -ne "$expected" ]; then
+            echo "::error::Expected $expected wheels, found ${#wheels[@]}"
+            exit 1
+          fi
+
+          dupes=$(for w in "${wheels[@]}"; do basename "$w"; done | sort | uniq -d | tr '\n' ' ')
+          if [ -n "$dupes" ]; then
+            echo "::error::Duplicate wheel filenames: $dupes"
+            exit 1
+          fi
+
+          for w in "${wheels[@]}"; do
+            unzip -tq "$w" || { echo "::error::Corrupt wheel: $w"; exit 1; }
+          done
+
+          cp "${wheels[@]}" dist/
+          ls -l dist/
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # v1.14.2

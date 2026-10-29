@@ -21,7 +21,7 @@ classifiers = [
 ]
 
 [project.optional-dependencies]
-test = ["pytest", "pytest-cov"]
+test = ["pytest", "pytest-cov", "setuptools>=70.1"]
 
 [project.urls]
 Homepage = "https://github.com/shenxianpeng/hadolint-pre-commit"
